@@ -13,16 +13,16 @@ mongoose
   .then((x) => {
     console.log(`Connected to the database: "${x.connection.name}"`);
     // Before adding any recipes to the database, let's remove all existing ones
-    // return Recipe.deleteMany();
+     return Recipe.deleteMany();
   })
   .then(() => {
-    // Recipe.insertMany(data).then((res) => console.log(res.title));
+     Recipe.insertMany(data).then((res) => console.log(res.title));
   })
   .catch((error) => {
     console.error("Error connecting to the database", error);
   });
 
-  const pro1 = Recipe.findOneAndUpdate({title: 'Rigatoni alla Genovese'},{duration: 100})
+  const pro1 = Recipe.findOneAndUpdate({title: 'Rigatoni alla Genovese'},{duration: 100},{new: true})
   
 
 
